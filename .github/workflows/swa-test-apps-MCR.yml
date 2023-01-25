@@ -76,8 +76,13 @@ jobs:
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-Install-libedit oryx build /app 
       # - name: Pull jamstack image from private ACR
       #   run: docker pull jamstacktest.azurecr.io/oryx/build:Pre-bake-node
-      - name: Build application - jamstack-bullseye-20221103.1
-        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221103.1 oryx build /app ${{ matrix.versionString }} --debug 
+      - name: Oryx build step
+        uses: snehapar9/jamstack-composite-action@snehapar/oryx-build
+        id: oryx-build
+        with:
+          app-location: $(pwd)/tests/SampleApps/${{ matrix.app }} 
+          username: ${{ secrets.AZURE_CLIENT_ID }}
+          password: ${{ secrets.AZURE_CLIENT_SECRET }} 
       # - name: Pull jamstack image from MCR
       #   run : docker pull mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221103.1
       # - name: Build application - jamstack-bullseye-20221103.1
