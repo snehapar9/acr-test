@@ -46,7 +46,7 @@ jobs:
           - nodejs/vue-sample
           - nodejs/websocket
           - nodejs/azure-pages-sample
-          - nodejs/express-config-yaml
+          - nodejs/express-config-yaml/app
           - nodejs/helloworld-nuxtjs
           - nodejs/linxnodeexpress-appinsights
           - nodejs/node-makefile-sample
