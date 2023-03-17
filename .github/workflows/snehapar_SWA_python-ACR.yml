@@ -86,8 +86,8 @@ jobs:
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:Fix-sytax-errors oryx build /app 
       - name: Build application - based in mariner base image
         run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/mariner/python:latest oryx build /app ${{ matrix.versionString }} --debug    
-      - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
-        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-prebake-node16 oryx build /app ${{ matrix.versionString }} --debug 
+     # - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
+     #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-prebake-node16 oryx build /app ${{ matrix.versionString }} --debug 
       # - name: Build application - jamstack-bullseye-20221103.1
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221103.1 oryx build /app ${{ matrix.versionString }} --debug
       # - name: Build application - jamstack-bullseye
