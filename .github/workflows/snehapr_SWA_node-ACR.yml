@@ -53,10 +53,10 @@ jobs:
           - nodejs/node-postgres
           - nodejs/vuepress
         versionString: 
-          - "--platform nodejs --platform-version 12"
-          - "--platform nodejs --platform-version 14"
+          #- "--platform nodejs --platform-version 12"
+          #- "--platform nodejs --platform-version 14"
           - "--platform nodejs --platform-version 16"
-          - "--platform nodejs --platform-version 18"
+          #- "--platform nodejs --platform-version 18"
         exclude:
           - app: nodejs/angular14app
             versionString: "--platform nodejs --platform-version 12"
