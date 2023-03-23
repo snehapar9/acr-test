@@ -14,7 +14,7 @@ jobs:
         app:
           - golang/hello-world
         versionString: 
-          - ""
+          - "--platform golang --platform-version 1.18"
 
     steps:
       - uses: actions/checkout@v3
@@ -57,8 +57,8 @@ jobs:
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:Fix-sytax-errors oryx build /app 
       # - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:Pre-bake-node oryx build /app ${{ matrix.versionString }} --debug   
-      - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
-        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-prebake-node16 oryx build /app ${{ matrix.versionString }} --debug
+      - name: Build application - using mariner based base image
+        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/mariner/golang:latest oryx build /app ${{ matrix.versionString }} --debug
       # - name: Build application - jamstack-bullseye
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221214.1 oryx build /app    
       # - name: Build application - cli-bullseye
