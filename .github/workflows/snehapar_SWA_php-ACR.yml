@@ -23,7 +23,7 @@ jobs:
           - php/greetings
           - php/imagick-example
         versionString: 
-          - ""
+          - "--platform php --platform-version 8.1"
 
     steps:
       - uses: actions/checkout@v3
@@ -64,8 +64,10 @@ jobs:
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-Install-libedit oryx build /app 
       # - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:Fix-sytax-errors oryx build /app 
-      - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
-        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-prebake-node16 oryx build /app ${{ matrix.versionString }} --debug  
+     # - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
+     #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:azfunc-jamstack-debian-bullseye-prebake-node16 oryx build /app ${{ matrix.versionString }} --debug 
+      - name: Build application - using mariner as base image
+        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/mariner/php:latest oryx build /app ${{ matrix.versionString }} --debug
       # - name: Build application - jamstack-bullseye-20221103.1
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221103.1 oryx build /app ${{ matrix.versionString }} --debug
       # - name: Build application - jamstack-bullseye
