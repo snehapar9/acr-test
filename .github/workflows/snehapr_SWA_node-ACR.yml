@@ -25,7 +25,7 @@ jobs:
           - nodejs/websocket
           - nodejs/NodeAndTypeScriptHelloWorld
           - nodejs/blog-starter-nextjs
-          - nodejs/express-process-json
+          - nodejs/express-process-json/app
           - nodejs/hexo-sample
           - nodejs/monorepo-lerna-npm
           - nodejs/node-mssql
