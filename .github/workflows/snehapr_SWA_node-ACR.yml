@@ -109,7 +109,9 @@ jobs:
       - name: Build application - mariner based node images
         run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/mariner/node:latest oryx build /app ${{ matrix.versionString }} --debug 
       - name: Build application - mariner based node images
-        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/runtime/node:mariner-16 oryx create-script --appPath /app && ./run.sh  
+        run: |
+         docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/runtime/node:mariner-16 oryx create-script --appPath /app  
+         cd /app/run.sh
       # - name: Build application - jamstack-bullseye-20221103.1
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221103.1 oryx build /app ${{ matrix.versionString }} --debug
       # - name: Build application - jamstack-bullseye
