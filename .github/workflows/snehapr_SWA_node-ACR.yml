@@ -31,7 +31,7 @@ jobs:
           - nodejs/node-mssql
           - nodejs/node-sass-example
           - nodejs/webfrontend
-          - nodejs/gatsbyexample
+          - nodejs/gatsbysample
           - nodejs/lab2-appservice
           - nodejs/monorepo-lerna-yarn
           - nodejs/node-mysql
