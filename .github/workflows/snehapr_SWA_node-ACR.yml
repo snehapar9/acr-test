@@ -46,7 +46,6 @@ jobs:
           - nodejs/websocket
           - nodejs/azure-pages-sample
           - nodejs/express-config-yaml/app
-          - nodejs/helloworld-nextjs
           - nodejs/linxnodeexpress-appinsights
           - nodejs/node-makefile-sample
           - nodejs/node-postgres
