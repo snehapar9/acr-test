@@ -37,8 +37,7 @@ jobs:
           - nodejs/node-mysql
           - nodejs/soundcloud-ngrx
           - nodejs/webfrontend-yarnlock
-          - nodejs/app-with-no-dependencies
-          - nodejs/express-config-js
+          - nodejs/express-config-js/app
           - nodejs/hackernews-nuxtjs
           - nodejs/linxnodeexpress
           - nodejs/nextjs-yarn2-example
