@@ -67,7 +67,9 @@ jobs:
       # - name: Build application - pre-bake node + python dependecies - pre-bake python + yarn + node
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app jamstacktest.azurecr.io/oryx/build:Pre-bake-node oryx build /app ${{ matrix.versionString }} --debug   
       - name: Build application - jamstack-bullseye-20221103.1
-        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221103.1 oryx build /app ${{ matrix.versionString }} --debug
+        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/php:8.2-fpm-debian-bullseye-20230720.2 oryx build /app ${{ matrix.versionString }} --debug
+      - name: Run application - mariner based node images
+        run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/php:8.2-fpm-debian-bullseye-20230720.2 oryx create-script --appPath /app   
       # - name: Build application - jamstack-bullseye
       #   run: docker run --rm -v $(pwd)/tests/SampleApps/${{ matrix.app }}:/app mcr.microsoft.com/oryx/build:azfunc-jamstack-debian-bullseye-20221214.1 oryx build /app    
       # - name: Build application - cli-bullseye
